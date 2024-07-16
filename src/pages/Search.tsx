@@ -29,7 +29,6 @@ export default function Search() {
 
   }, [dispatch,navigate,searchTerm]);
 
-  console.log(videos);
 
   return (
     <div className="max-h-screen overflow-hidden">
@@ -48,11 +47,14 @@ export default function Search() {
               loader={<Spinner />}
               height={600}
             >
-              <div className="my-5">
+              
                 {videos.map((item: HomePageVideos) => {
-                  return <SearchCard data={item} key={item.videoId} />;
+                  return (
+                    <div className="my-5">
+                      < SearchCard data = { item } key = { item.videoId } />
+                    </div>
+                  )
                 })}
-              </div>
             </InfiniteScroll>
           </div>
         ) : (

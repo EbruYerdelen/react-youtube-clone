@@ -116,8 +116,7 @@ Dispatch: The dispatch function is provided by Redux (or Redux Toolkit) to send 
 Understanding clearVideos
 In your original setup:
 
-javascript
-Kodu kopyala
+
 import { clearVideos } from './yourSliceFile';
 
 dispatch(clearVideos());

@@ -2,6 +2,8 @@ import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { InitialState } from "../Types";
 import { getHomePageVideos } from "./reducers/getHomePageVideos";
 import { getSearchPageVideos } from "./reducers/getSearchPageVideos";
+import { getVideoDetails } from "./reducers/getVideoDetails";
+import { getRecommendedVideos } from "./reducers/getRecommendedVideos";
 
 const initialState: InitialState = {
   videos: [],
@@ -16,7 +18,7 @@ const initialState: InitialState = {
 const YoutubeSlice = createSlice({
   name: "youtubeApp",
   initialState,
-  //this reducer(synchronous action handler) above will be called whenever we changed the page(go to searhPage)
+  //this reducer(synchronous action handler) below will be called whenever we changed the page(go to searhPage)
   reducers: {
     //these are reducers but redux toolkit automatically generates action creators with them.
     /*
@@ -44,6 +46,14 @@ const YoutubeSlice = createSlice({
     builder.addCase(getSearchPageVideos.fulfilled, (state, action) => {
       state.videos = action.payload.parsedData;
       state.nextPageToken = action.payload.nextPageToken;
+    });
+
+    builder.addCase(getVideoDetails.fulfilled, (state, action) => {
+      state.currentPlaying = action.payload;
+    });
+
+    builder.addCase(getRecommendedVideos.fulfilled, (state, action) => {
+      state.recommendedVideos = action.payload.parsedData;
     });
   },
 });
