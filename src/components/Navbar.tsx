@@ -1,4 +1,3 @@
-import React from 'react'
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { TiMicrophone } from "react-icons/ti";
 import { BsYoutube, BsCameraVideo, BsBell } from "react-icons/bs";
